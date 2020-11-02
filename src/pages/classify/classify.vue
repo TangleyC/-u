@@ -31,13 +31,10 @@ export default {
   methods: {
     WillAdd() {
       this.info.isshow = true;
-     this.info.title = "添加规格";
-      //调用add的empty
-      this.$refs.add.empty()
+      this.info.title="添加分类"
     },
     willUpdate(id) {
-     this.info.isshow = true;
-      this.info.title = "编辑规格";
+      (this.info.isshow = true),
         //根据id，add发起获取一条数据的请求
         //父组件要调用子组件的方法或者属性
         this.$refs.add.getOne(id);

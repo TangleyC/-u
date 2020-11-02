@@ -1,0 +1,1 @@
+export const mag2m='文件大小不能超过2m'

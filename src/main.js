@@ -2,37 +2,30 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-//3.路由
 import router from './router'
 
 Vue.config.productionTip = false
 
-//1.reset.css 
-import "./assets/css/reset.css"
+// 1.引入静态资源
+import './assets/css/reset.css'
+// import './assets/js/rem'
 
-// 2.element-ui 
+// 2.配置仓库，路由，组件 过滤器
+
+// 3.安装依赖 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
-// 4.路由组件 pages 
+// 导入仓库
+import store from './store/index'
 
-// 5数据请求
-
-//6.状态层
-import store from "./store"
-
-//7.全局组件
 import "./components"
-
-//8.过滤器
-import "./filters"
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  store:store,
+  store,
   components: { App },
   template: '<App/>'
 })

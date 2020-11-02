@@ -2,84 +2,88 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
-export const indexRoutes=[
+
+
+
+const home = () => import('../pages/home/home')
+
+const role = () => import('../pages/role/role')
+const manger = () => import('../pages/manger/manger')
+const menu = () => import('../pages/menu/menu')
+const spces = () => import('../pages/spces/spces')
+const loop = () => import('../pages/loop/loop')
+const seckill = () => import('../pages/seckill/seckill')
+const classify = () => import('../pages/classify/classify')
+const goods = () => import('../pages/goods/goods')
+const member = () => import('../pages/member/member')
+
+
+export const indexRouters = [
   {
-    path:"menu",
-    component:()=>import("../pages/menu/menu"),
-    name:"菜单管理"
+    path: 'role',
+    component: role,
+    name: '角色列表'
   },
   {
-    path:"role",
-    component:()=>import("../pages/role/role"),
-    name:"角色管理"
+    path: 'manger',
+    component: manger,
+    name: '管理员列表'
   },
   {
-    path:"manage",
-    component:()=>import("../pages/manage/manage"),
-    name:"管理员管理"
+    path: 'menu',
+    component: menu,
+    name: '菜单列表'
   },
   {
-    path:"cate",
-    component:()=>import("../pages/cate/cate"),
-    name:"商品分类"
+    path: 'spces',
+    component: spces,
+    name: '商品规格'
   },
   {
-    path:"spec",
-    component:()=>import("../pages/spec/spec"),
-    name:"商品规格"
+    path: 'loop',
+    component: loop,
+    name: '轮播图'
   },
   {
-    path:"goods",
-    component:()=>import("../pages/goods/goods"),
-    name:"商品管理"
+    path: 'seckill',
+    component: seckill,
+    name: '秒杀活动'
   },
   {
-    path:"banner",
-    component:()=>import("../pages/banner/banner"),
-    name:"轮播图管理"
+    path: 'classify',
+    component: classify,
+    name: '商品分类'
   },
   {
-    path:"member",
-    component:()=>import("../pages/member/member"),
-    name:"会员管理"
+    path: 'goods',
+    component: goods,
+    name: '商品列表'
   },
   {
-    path:"seckill",
-    component:()=>import("../pages/seckill/seckill"),
-    name:"秒杀活动"
+    path: 'member',
+    component: member,
+    name: '会员管理'
   },
 ]
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 export default new Router({
   routes: [
     {
-      path: "/login",
-      component: () => import("../pages/login/login")
+      path: '/login',
+      component: () => import('../pages/login/login')
     },
     {
-      path: "/",
-      component: () => import("../pages/index/index.vue"),
-      children:[
+      path: '/',
+      component: () => import('../pages/index/index'),
+      children: [
         {
-          path:"",
+          path: "",
           component:()=>import("../pages/home/home")
-        }
-      ].concat(indexRoutes)
+        },
+        // ...indexRouters
+      ].concat(indexRouters)
     }
   ]
 })
-
